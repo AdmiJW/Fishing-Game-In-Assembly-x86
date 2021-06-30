@@ -9,7 +9,7 @@ INCLUDE include.inc
 	Money DWORD 0
 	Level DWORD 1
 	Experience DWORD 0
-	NextLevel DWORD 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 , 9, 9, 9, 9
+	NextLevel DWORD 0, 10, 25, 50, 75, 100, 150, 200, 350, 500, 750, 900, 1250, 2500, 5000, 8000
 	Bait DWORD 0
 	CurrFishRodAddr DWORD ?
 	CurrFishRodIdx DWORD 0
@@ -177,7 +177,7 @@ checked_bait_l:
 
 	; Check if the  player leveled up!
 	CMP [Level], 15
-	JE level_up_checked_l
+	JGE level_up_checked_l
 	MOV EAX, [Level]
 	MOV EDX, [NextLevel+EAX*TYPE NextLevel]
 	CMP Experience, EDX
