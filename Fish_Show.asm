@@ -110,7 +110,7 @@ INCLUDE Irvine32.inc
 		BYTE "     ....,,,,,,,                                              ", 13, 10
 		BYTE "      ....,,,                                                 ", 13, 10, 13, 10, 13, 10
 		BYTE "[Tier 4] You caught a goldfish! You decided to put it back into the water", 13, 10
-		BYTE "You gained $0 and 10 Experience", 13, 10, 0
+		BYTE "You gained $1 and 10 Experience", 13, 10, 0
 	Lv5_Clam BYTE "                              ..                              ", 13, 10
 		BYTE "                     .,*****,,,,*****,,..                     ", 13, 10
 		BYTE "               ,**,,,,*,,..,,,,,,,****,,*,*                   ", 13, 10
@@ -125,7 +125,7 @@ INCLUDE Irvine32.inc
 		BYTE "                       ..*/(###%%%%%###(/*,,,.......          ", 13, 10
 		BYTE "                                               .....          ", 13, 10, 13, 10, 13, 10
 		BYTE "[Tier 5] You caught a Clam! Sadly, there's no pearl inside", 13, 10
-		BYTE "You gained $1 and 15 Experience", 13, 10, 0
+		BYTE "You gained $3 and 15 Experience", 13, 10, 0
 	Lv6_Shrimp BYTE "             ,////////////,                                   ", 13, 10
 		BYTE "         (/////////////////////(((,                           ", 13, 10
 		BYTE "      /////(//////(/////////////////(((((                     ", 13, 10
@@ -346,14 +346,14 @@ Lv4_Goldfish_l:
 	MOV EAX, yellow+(black*16)
 	CALL SetTextColor
 	MOV EDX, OFFSET Lv4_Goldfish
-	MOV EBX, 0
+	MOV EBX, 1
 	MOV ECX, 10
 	JMP Finally
 Lv5_Clam_l:
 	MOV EAX, brown+(black*16)
 	CALL SetTextColor
 	MOV EDX, OFFSET Lv5_Clam
-	MOV EBX, 1
+	MOV EBX, 3
 	MOV ECX, 15
 	JMP Finally
 Lv6_Shrimp_l:

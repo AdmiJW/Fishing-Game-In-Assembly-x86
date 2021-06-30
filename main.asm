@@ -16,7 +16,7 @@ INCLUDE include.inc
 	Buff DWORD 0
 
 	; Fishing Rods
-	Shop_Prices DWORD 0, 20, 100, 250, 700, 1000, 3000, 0
+	Shop_Prices DWORD 0, 10, 100, 250, 700, 1000, 3000, 0
 	Wood_FR BYTE "Wooden Fishing Rod", 0
 	Iron_FR BYTE "Iron Fishing Rod", 0
 	Rein_FR BYTE "Reinforced Fishing Rod", 0
@@ -35,7 +35,7 @@ INCLUDE include.inc
 	Shop_Menu BYTE "==============================", 13, 10
 		BYTE "		Shop		", 13, 10
 		BYTE "==============================", 13, 10
-		BYTE "1 - Bait ($20) - One time use only, Power+1", 13, 10
+		BYTE "1 - Bait ($10) - One time use only, Power+1", 13, 10
 		BYTE "2 - Iron Fishing Rod ($100) - Power+1", 13, 10
 		BYTE "3 - Reinforced Fishing Rod ($250) - Power+2", 13, 10
 		BYTE "4 - Silver Fishing Rod ($700) - Power+3", 13, 10
@@ -148,6 +148,7 @@ displayMainMenu_l:
 ;======================================
 go_fishing_l:
 	;	Generate random number for the catch
+	CALL Randomize
 	MOV EAX, Level
 	CALL RandomRange
 	INC EAX				;Since is [0 - N-1[, we increment to get level 1-N
